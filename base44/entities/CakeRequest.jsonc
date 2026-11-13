@@ -1,0 +1,101 @@
+{
+  "name": "CakeRequest",
+  "type": "object",
+  "properties": {
+    "customer_name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "occasion": {
+      "type": "string",
+      "enum": [
+        "Birthday",
+        "Wedding",
+        "Anniversary",
+        "Baby shower",
+        "Office table",
+        "Just because"
+      ],
+      "enumColors": [
+        "pink",
+        "purple",
+        "red",
+        "blue",
+        "yellow",
+        "green"
+      ]
+    },
+    "people": {
+      "type": "string"
+    },
+    "flavour": {
+      "type": "string"
+    },
+    "look": {
+      "type": "string"
+    },
+    "needed_by": {
+      "type": "string"
+    },
+    "budget": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "inspiration_file": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "quoted",
+        "confirmed",
+        "declined"
+      ],
+      "enumColors": [
+        "yellow",
+        "blue",
+        "green",
+        "red"
+      ],
+      "default": "pending"
+    }
+  },
+  "required": [
+    "customer_name",
+    "email",
+    "occasion"
+  ],
+  "rls": {
+    "create": {},
+    "read": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

@@ -1,0 +1,315 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=Plus+Jakarta+Sans:ital,wght@0,400..800;1,400..800&family=Cormorant+Garamond:ital,wght@1,500;1,600;1,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 38 64% 97%;
+    --foreground: 24 33% 18%;
+    --card: 0 0% 100%;
+    --card-foreground: 24 33% 18%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 24 33% 18%;
+    --primary: 344 100% 59%;
+    --primary-foreground: 38 64% 97%;
+    --secondary: 33 100% 50%;
+    --secondary-foreground: 24 33% 18%;
+    --muted: 34 50% 93%;
+    --muted-foreground: 24 18% 38%;
+    --accent: 331 100% 91%;
+    --accent-foreground: 24 33% 18%;
+    --destructive: 0 72% 46%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 28 34% 82%;
+    --input: 28 34% 78%;
+    --ring: 33 100% 50%;
+    --radius: 1.1rem;
+    --font-heading: "Fraunces", Georgia, "Times New Roman", serif;
+    --font-body: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+    --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+    --font-fancy: "Cormorant Garamond", Georgia, serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+    --sidebar-background: 38 64% 97%;
+    --sidebar-foreground: 24 33% 18%;
+    --sidebar-primary: 344 100% 59%;
+    --sidebar-primary-foreground: 38 64% 97%;
+    --sidebar-accent: 34 50% 93%;
+    --sidebar-accent-foreground: 24 33% 18%;
+    --sidebar-border: 28 34% 82%;
+    --sidebar-ring: 33 100% 50%;
+  }
+
+  .dark {
+    --background: 24 25% 10%;
+    --foreground: 38 64% 95%;
+    --card: 24 22% 14%;
+    --card-foreground: 38 64% 95%;
+    --popover: 24 22% 14%;
+    --popover-foreground: 38 64% 95%;
+    --primary: 344 100% 63%;
+    --primary-foreground: 24 25% 10%;
+    --secondary: 33 100% 52%;
+    --secondary-foreground: 24 25% 10%;
+    --muted: 24 18% 20%;
+    --muted-foreground: 34 30% 74%;
+    --accent: 331 60% 34%;
+    --accent-foreground: 38 64% 95%;
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 24 18% 26%;
+    --input: 24 18% 30%;
+    --ring: 33 100% 52%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* ---------- brand pieces (mirrors the bakery house style) ---------- */
+
+.shell {
+  width: 100%;
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.125rem;
+  padding-right: 1.125rem;
+}
+@media (min-width: 640px) {
+  .shell {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.sticker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.625rem;
+  border: 2px solid #3d2b1f;
+  border-radius: 9999px;
+  background-color: #ffe6a7;
+  color: #3d2b1f;
+  font-size: 9px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  box-shadow: 2px 2px 0 0 #3d2b1f;
+}
+@media (min-width: 640px) {
+  .sticker {
+    padding: 0.25rem 0.75rem;
+    font-size: 10px;
+  }
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 0.875rem;
+  border: 2px solid rgba(61, 43, 31, 0.15);
+  border-radius: 9999px;
+  background-color: hsl(var(--card));
+  color: rgba(61, 43, 31, 0.7);
+  font-size: 9.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+@media (min-width: 640px) {
+  .eyebrow {
+    padding: 0.375rem 1rem;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+  }
+}
+
+.btn-funk,
+.btn-funk-tang,
+.btn-funk-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid #3d2b1f;
+  border-radius: 9999px;
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  box-shadow: 4px 4px 0 0 #3d2b1f;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-funk {
+  background-color: #ff2e63;
+  color: #fdf9f3;
+}
+.btn-funk-tang {
+  background-color: #ff9a00;
+  color: #3d2b1f;
+}
+.btn-funk-ghost {
+  background-color: #fdf9f3;
+  color: #3d2b1f;
+  min-height: 3rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  font-size: 12px;
+}
+.btn-funk:hover,
+.btn-funk-tang:hover,
+.btn-funk-ghost:hover {
+  transform: translateY(-0.125rem);
+  box-shadow: 6px 6px 0 0 #3d2b1f;
+}
+.btn-funk-ghost:hover {
+  background-color: #ffe6a7;
+}
+.btn-funk:active,
+.btn-funk-tang:active,
+.btn-funk-ghost:active {
+  transform: translateY(0);
+  box-shadow: 2px 2px 0 0 #3d2b1f;
+}
+
+.label-funk {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: rgba(61, 43, 31, 0.7);
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+.field-funk {
+  width: 100%;
+  border: 2px solid #3d2b1f;
+  border-radius: 0.9rem;
+  background-color: #fff;
+  padding: 0.7rem 1rem;
+  font-size: 15px;
+  color: #3d2b1f;
+  transition: box-shadow 0.2s ease, background-color 0.2s ease;
+}
+.field-funk::placeholder {
+  color: rgba(61, 43, 31, 0.35);
+}
+.field-funk:focus {
+  outline: none;
+  background-color: #fffdf9;
+  box-shadow: 3px 3px 0 0 #ff2e63;
+}
+
+.card-funk {
+  box-shadow: 5px 5px 0 0 #3d2b1f;
+}
+
+/* the refined ampersand */
+.amp-mark {
+  display: inline-block;
+  font-family: var(--font-fancy);
+  font-style: italic;
+  font-weight: 600;
+  line-height: 0.75;
+  color: #ff2e63;
+  letter-spacing: -0.03em;
+  font-size: 1.16em;
+  transform: translateY(0.06em);
+}
+
+/* ---------- motion ---------- */
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.animate-marquee {
+  animation: marquee 32s linear infinite;
+}
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(1.1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.hero-rise {
+  opacity: 0;
+  animation: hero-rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+}
+
+@keyframes hero-rise-photo {
+  from {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.hero-photo {
+  opacity: 0;
+  animation: hero-rise-photo 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+}
+.hero-photo-drop {
+  margin-top: 0;
+}
+@media (min-width: 640px) {
+  .hero-photo-drop {
+    margin-top: clamp(0px, 4vw, 56px);
+  }
+}
+
+@keyframes hero-letter-wave {
+  0%,
+  18%,
+  100% {
+    color: #3d2b1f;
+  }
+  9% {
+    color: #ff9a00;
+  }
+}
+.hero-letter {
+  display: inline-block;
+  animation: hero-letter-wave 5s linear infinite;
+  animation-delay: calc(var(--i, 0) * 90ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-rise,
+  .hero-photo {
+    opacity: 1 !important;
+    animation: none !important;
+  }
+  .hero-letter {
+    color: #3d2b1f !important;
+    animation: none !important;
+  }
+  .animate-marquee {
+    animation: none !important;
+  }
+}
